@@ -13,6 +13,10 @@ Mount it on your windshield, drive, and get a lane level HD map with traffic sig
 ![Tests](https://img.shields.io/badge/tests-23%20JVM%20%2B%208%20on--device-success)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
+### [Download the APK](https://github.com/Sherin-SEF-AI/Blurabbit-HDMAP/releases/latest)
+
+[![Download APK](https://img.shields.io/github/v/release/Sherin-SEF-AI/Blurabbit-HDMAP?label=download%20apk&logo=android&color=3DDC84)](https://github.com/Sherin-SEF-AI/Blurabbit-HDMAP/releases/latest)
+
 </div>
 
 <div align="center">
