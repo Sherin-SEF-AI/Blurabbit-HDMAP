@@ -1,0 +1,23 @@
+# Build output
+build/
+*/build/
+.gradle/
+.kotlin/
+
+# Android / IDE
+*.iml
+.idea/
+local.properties
+captures/
+.externalNativeBuild
+.cxx
+
+# Artifacts
+*.apk
+*.aab
+*.keystore
+
+# Tooling / local
+.claude/
+.DS_Store
+*.log

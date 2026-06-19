@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hdmap-backend
+  labels: { app: hdmap-backend }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: hdmap-backend }
+  template:
+    metadata:
+      labels: { app: hdmap-backend }
+    spec:
+      containers:
+        - name: backend
+          image: ghcr.io/blurabbit/hdmap-backend:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - { name: PORT, value: "8080" }
+            - { name: STORE, value: "postgres" }
+            - name: DB_URL
+              valueFrom: { secretKeyRef: { name: hdmap-db, key: url } }
+            - name: DB_USER
+              valueFrom: { secretKeyRef: { name: hdmap-db, key: user } }
+            - name: DB_PASSWORD
+              valueFrom: { secretKeyRef: { name: hdmap-db, key: password } }
+          resources:
+            requests: { cpu: "250m", memory: "256Mi" }
+            limits: { cpu: "1000m", memory: "1Gi" }
+          readinessProbe:
+            httpGet: { path: /v1/health, port: 8080 }
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /v1/health, port: 8080 }
+            initialDelaySeconds: 10
+            periodSeconds: 20
